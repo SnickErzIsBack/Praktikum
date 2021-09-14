@@ -4,6 +4,7 @@ im Rahmen meiner Bemühungen um ein Praktikum im Rahmen meiner Umschulung zum Fa
 Auf unterschiedlichen Wegen sollen hier 5 eingegebene Zahlen sortiert werden.
 
 Bisher gibt es die Konsolenversionen in einer finalsierten Variante, mittels Collections-Sortierung.
+
 Aktuell erarbeite ich mir eine GUI gestützte Variante.
 
 Es soll noch mehr kommen.
