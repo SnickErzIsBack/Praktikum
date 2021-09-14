@@ -4,6 +4,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
+
 import ComCave.FileManager;
 
 public class ButtonKlick implements ActionListener {
@@ -27,27 +29,24 @@ public class ButtonKlick implements ActionListener {
 					if( numStrg.matches("[0-9]+") )
 						{
 							Numbers.numberList.add(new Numbers(numStrg));
-							switch (Numbers.numberList.size()) {
+							switch (Numbers.numberList.size())
+								{
 								case 1:
 									{mw.lbl_EnterNumbers.setText("Please enter your second number!");
-										break;
-									}
+										break;}
 								case 2:
 									{mw.lbl_EnterNumbers.setText("Please enter your third number!");
-										break;
-									}
+										break;}
 								case 3:
 									{mw.lbl_EnterNumbers.setText("Please enter your fourth number!");
-										break;
-									}
+										break;}
 								case 4:
 									{mw.lbl_EnterNumbers.setText("Please enter your last number!");
-										break;
-									}
+										break;}
 								default:
 									System.out.println("falscheingabe");
 										break;
-									}
+								}
 							mw.tfEnterNumbersHere.setText("");
 							String toSortStrg ="";
 							for (Numbers numberlist: Numbers.numberList)
@@ -56,7 +55,9 @@ public class ButtonKlick implements ActionListener {
 								}
 							mw.taNumbersSoFar.setText(toSortStrg);
 					}else{
-							mw.lbl_EnterNumbers.setText("Please enter an ACTUAL number!");
+							//mw.lbl_EnterNumbers.setText("Please enter an ACTUAL number!");
+							JOptionPane.showMessageDialog(mw, "Kunde nicht gespeichert");
+							ArrayList<String> numberList = new ArrayList<String>();
 					}
 					
 			}else if (e.getSource().equals(mw.btnSorter))

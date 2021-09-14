@@ -86,7 +86,10 @@ public class MainWindow extends JFrame {
 	    {  
 		
 			new MainWindow().setVisible(true);
-	    	
+
+			
+//		next UPLOAD-try
+			
 //			int a;
 //	    	double number;
 //	    	    	
