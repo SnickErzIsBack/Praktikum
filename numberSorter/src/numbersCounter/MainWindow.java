@@ -50,7 +50,7 @@ public class MainWindow extends JFrame {
 			btnSaver.setBounds(30, 120, 170, 25);
 			btnSorter.setBounds(30, 361, 170, 25);
 			
-			lblNumbersSoFar = new JLabel("These are your numbers so far");
+			lblNumbersSoFar = new JLabel("Your numbers so far");
 			lblNumbersSoFar.setHorizontalAlignment(SwingConstants.CENTER);
 			lblNumbersSoFar.setBounds(30, 181, 170, 25);
 			getContentPane().add(lblNumbersSoFar);
