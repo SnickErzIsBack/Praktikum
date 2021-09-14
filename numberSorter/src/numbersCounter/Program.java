@@ -10,7 +10,7 @@ public class Program {
     	int a;
     	double number;
     	    	
-        ArrayList<Integer> numberList=new ArrayList<Integer>();
+        ArrayList<Integer> numberList = new ArrayList<Integer>();
         System.out.println("This app sorts 5 Numbers by your choosing.");
 
         for(int i=0; i<5;i++)

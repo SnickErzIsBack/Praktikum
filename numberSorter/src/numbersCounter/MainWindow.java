@@ -13,8 +13,8 @@ import javax.swing.JTextArea;
 
 public class MainWindow extends JFrame {
 
-	JButton jbSorter;
-	JButton jbSaver;
+	JButton btnSorter;
+	JButton btnSaver;
 	JLabel lbl_EnterNumbers;
 	JLabel bckGr;
 	JPanel bckGrPanel;
@@ -23,57 +23,67 @@ public class MainWindow extends JFrame {
 	JTextArea taNumbersSoFar;
 	JTextArea taSortedNumbers;
 	JLabel lblSortedNumbers;
+	JLabel lblIntroduction;
 	
 	public MainWindow()
-	{
-		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-		this.setSize(370,280);
-		this.setTitle("Number Sorter");
-		getContentPane().setLayout(null);
-		
-		lbl_EnterNumbers = new JLabel("enter Numbers here");
-		tfEnterNumbersHere = new JTextField();
-		tfEnterNumbersHere.setHorizontalAlignment(SwingConstants.CENTER);
-		jbSaver = new JButton("save number");
-		jbSorter = new JButton("sort Numbers");
-		
-		getContentPane().add(tfEnterNumbersHere);
-		getContentPane().add(jbSorter);
-		getContentPane().add(jbSaver);
-		getContentPane().add(lbl_EnterNumbers);
-		
-		lbl_EnterNumbers.setBounds(20, 40, 130, 25);
-		tfEnterNumbersHere.setBounds(20, 70, 130, 25);
-		jbSaver.setBounds(208, 70, 111, 25);
-		jbSorter.setBounds(208, 130, 111, 25);
-		
-		lblNumbersSoFar = new JLabel("your Numbers so far");
-		lblNumbersSoFar.setBounds(20, 100, 130, 25);
-		getContentPane().add(lblNumbersSoFar);
-		
-		taNumbersSoFar = new JTextArea();
-		taNumbersSoFar.setEditable(false);
-		taNumbersSoFar.setBounds(20, 130, 130, 25);
-		getContentPane().add(taNumbersSoFar);
-		
-		taSortedNumbers = new JTextArea();
-		taSortedNumbers.setEditable(false);
-		taSortedNumbers.setBounds(20, 190, 130, 25);
-		getContentPane().add(taSortedNumbers);
-		
-		lblSortedNumbers = new JLabel("your sorted Numbers");
-		lblSortedNumbers.setBounds(20, 160, 130, 25);
-		getContentPane().add(lblSortedNumbers);
-				
-		ButtonKlick klick = new ButtonKlick(this);
-		jbSaver.addActionListener(klick);
-		jbSorter.addActionListener(klick);
-		
-		this.setVisible(true);
-	}
+		{
+			this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+			this.setSize(250,700);
+			this.setTitle("Number Sorter");
+			getContentPane().setLayout(null);
+			
+			lbl_EnterNumbers = new JLabel("Please enter your first number:");
+			lbl_EnterNumbers.setHorizontalAlignment(SwingConstants.CENTER);
+			tfEnterNumbersHere = new JTextField();
+			tfEnterNumbersHere.setHorizontalAlignment(SwingConstants.CENTER);
+			btnSaver = new JButton("save number");
+			btnSorter = new JButton("sort numbers");
+			
+			
+			getContentPane().add(tfEnterNumbersHere);
+			getContentPane().add(btnSorter);
+			getContentPane().add(btnSaver);
+			getContentPane().add(lbl_EnterNumbers);
+			
+			lbl_EnterNumbers.setBounds(30, 50, 170, 25);
+			tfEnterNumbersHere.setBounds(30, 80, 170, 25);
+			btnSaver.setBounds(30, 120, 170, 25);
+			btnSorter.setBounds(30, 361, 170, 25);
+			
+			lblNumbersSoFar = new JLabel("These are your numbers so far");
+			lblNumbersSoFar.setHorizontalAlignment(SwingConstants.CENTER);
+			lblNumbersSoFar.setBounds(30, 181, 170, 25);
+			getContentPane().add(lblNumbersSoFar);
+			
+			taNumbersSoFar = new JTextArea();
+			taNumbersSoFar.setEditable(false);
+			taNumbersSoFar.setBounds(30, 211, 170, 140);
+			getContentPane().add(taNumbersSoFar);
+			
+			taSortedNumbers = new JTextArea();
+			taSortedNumbers.setEditable(false);
+			taSortedNumbers.setBounds(30, 454, 170, 140);
+			getContentPane().add(taSortedNumbers);
+			
+			lblSortedNumbers = new JLabel("Your numbers are sorted now");
+			lblSortedNumbers.setHorizontalAlignment(SwingConstants.CENTER);
+			lblSortedNumbers.setBounds(30, 420, 170, 25);
+			getContentPane().add(lblSortedNumbers);
+			
+			lblIntroduction = new JLabel("This app will sort 5 numbers.");
+			lblIntroduction.setHorizontalAlignment(SwingConstants.CENTER);
+			lblIntroduction.setBounds(30, 25, 170, 20);
+			getContentPane().add(lblIntroduction);
+					
+			ButtonKlick klick = new ButtonKlick(this);
+			btnSaver.addActionListener(klick);
+			btnSorter.addActionListener(klick);
+								
+			this.setVisible(true);
+		}
 	
 	public static void main(String[] args)
-	     {  
+	    {  
 		
 			new MainWindow().setVisible(true);
 	    	
