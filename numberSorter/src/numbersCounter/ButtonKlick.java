@@ -24,20 +24,16 @@ public class ButtonKlick implements ActionListener {
 			}else if (e.getSource().equals(mw.btnSorter))
 				{
 					mw.taNumbersSoFar.setText("");
-					
 					CreateNTSNarr obj = new CreateNTSNarr();
 					int numbersToSort[] = obj.createNTSNarr();
-										
 					bubbleSort(numbersToSort);
-
 					for (int j =0; j< numbersToSort.length; j++)
-					{
-						sortedOutput += String.valueOf(numbersToSort[j]) + "\n";
-					}
+						{
+							sortedOutput += String.valueOf(numbersToSort[j]) + "\n";
+						}
 					mw.taSortedNumbers.setText(sortedOutput);				
 				}
 		}
-	
 	
 	public void fillNumbersSoFar()
 		{
@@ -113,6 +109,6 @@ public class ButtonKlick implements ActionListener {
 			return;
 		}
 	
-}	
-	
+}
+//last update 210915 - 2121
 

@@ -27,6 +27,5 @@ public class Numbers {
 			this.number = number;
 		}
 	
-//	next UPLOAD-try 210915-1556
-	
 }	
+//last update 210915 - 2121

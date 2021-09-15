@@ -28,7 +28,7 @@ public class MainWindow extends JFrame {
 	
 	public MainWindow()
 		{
-		setBounds(new Rectangle(50, 0, 0, 0));
+			setBounds(new Rectangle(50, 0, 0, 0));
 			setAlwaysOnTop(true);
 			this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 			this.setSize(300,660);
@@ -92,3 +92,4 @@ public class MainWindow extends JFrame {
 			new MainWindow().setVisible(true);
 	    }
 }
+//last update 210915 - 2121
