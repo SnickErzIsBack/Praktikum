@@ -4,7 +4,8 @@ import java.util.ArrayList;
 
 public class Numbers {
 
-	public static ArrayList<Numbers>numberList;
+	//public static ArrayList<Numbers>numberList;
+	public static ArrayList<Numbers> numberList = new ArrayList<Numbers>();
 	
 	private String number;
 
