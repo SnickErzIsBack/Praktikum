@@ -7,8 +7,8 @@ für eine Präsentation im Rahmen meiner Umschulung zum
 entwickle ich dieses kleine Programm in JAVA.
 
 Die Anforderungen, wie folgt:
-- 5 Zahlen eingeben
-- die Zahlen aufsteigend sortieren
+- 5 Zahlen eingeben (done)
+- die Zahlen aufsteigend sortieren (done)
 - die Zahlen in einer Textdatei auf dem Desktop ausgeben
   (daran arbeite ich gerade)
 
