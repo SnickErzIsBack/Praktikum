@@ -65,7 +65,7 @@ public class ButtonKlick implements ActionListener {
 					mw.taSortedNumbers.setText("");
 					
 				}
-//			next UPLOAD-try 210914-2258			
+//			next UPLOAD-try 210915-1556
 			
 		}
 
