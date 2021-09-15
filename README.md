@@ -1,7 +1,9 @@
 Hallo,
 
 für eine Präsentation im Rahmen meiner Umschulung zum
-Fachinformatiker für Anwendungsentwicklung 
+
+  Fachinformatiker für Anwendungsentwicklung 
+
 entwickle ich dieses kleine Programm in JAVA.
 
 Die Anforderungen, wie folgt:
