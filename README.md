@@ -7,6 +7,7 @@ Die Anforderungen, wie folgt:
 - 5 Zahlen eingeben
 - die Zahlen aufsteigend sortieren
 - die Zahlen in einer Textdatei auf dem Desktop ausgeben
+  (daran arbeite ich gerade)
 
 Zu finden sind hier:
 - eine Konsolenversionen; sortiert wird mittels Collections-Sortierung.
