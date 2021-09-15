@@ -1,10 +1,13 @@
 Hallo,
-im Rahmen meiner Bemühungen um ein Praktikum im Rahmen meiner Umschulung zum Fachinformatiker für Anwendungsentwicklung entwickle ich für eine Präsentation dieses kleine Programm in JAVA.
 
-Auf unterschiedlichen Wegen sollen hier 5 eingegebene Zahlen sortiert werden.
+für eine Präsentation im Rahmen meiner Umschulung zum Fachinformatiker für Anwendungsentwicklung 
+entwickle ich dieses kleine Programm in JAVA.
 
-Bisher gibt es die Konsolenversionen in einer finalsierten Variante, mittels Collections-Sortierung.
+Die Anforderungen, wie folgt:
+- 5 Zahlen eingeben
+- die Zahlen aufsteigend sortieren
+- die Zahlen in einer Textdatei auf dem Desktop ausgeben
 
-Aktuell erarbeite ich mir eine GUI gestützte Variante.
-
-Es soll noch mehr kommen.
+Zu finden sind hier:
+- eine Konsolenversionen; sortiert wird mittels Collections-Sortierung.
+- eine GUI-gestützte Version; erstellt mit WindowsBuilder.
