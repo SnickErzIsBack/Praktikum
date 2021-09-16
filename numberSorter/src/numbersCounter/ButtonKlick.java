@@ -2,6 +2,9 @@ package numbersCounter;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+
+import javax.swing.JFileChooser;
 
 public class ButtonKlick implements ActionListener {
 
@@ -17,23 +20,42 @@ public class ButtonKlick implements ActionListener {
 		{
 			String sortedOutput = "";
 			
-			if(e.getSource().equals(mw.btnSaver) )
-				{
-					fillNumbersSoFar();
+			if (e.getSource().equals(mw.btnSaver)) {
 					
-			}else if (e.getSource().equals(mw.btnSorter))
-				{
-					mw.taNumbersSoFar.setText("");
-					CreateNTSNarr obj = new CreateNTSNarr();
-					int numbersToSort[] = obj.createNTSNarr();
-					bubbleSort(numbersToSort);
-					for (int j =0; j< numbersToSort.length; j++)
-						{
-							sortedOutput += String.valueOf(numbersToSort[j]) + "\n";
-						}
-					mw.taSortedNumbers.setText(sortedOutput);				
+				fillNumbersSoFar();
+					
+			}else if (e.getSource().equals(mw.btnSorter)) {
+					
+				mw.taNumbersSoFar.setText("");
+					
+				CreateNTSNarr obj = new CreateNTSNarr();
+				int numbersToSort[] = obj.createNTSNarr();
+				
+				bubbleSort(numbersToSort);
+				
+				for (int j =0; j< numbersToSort.length; j++)
+					{
+						sortedOutput += String.valueOf(numbersToSort[j]) + "\n";
+					}
+				
+				mw.taSortedNumbers.setText(sortedOutput);
+				mw.btnSorter.setEnabled(false);
+				mw.btnSSNtofile.setEnabled(true);
+			
+			}else if (e.getSource().equals(mw.btnSSNtofile)) { 
+				
+				File file = new File( new File("sortedNumbers.txt").getAbsolutePath() );
+				
+				JFileChooser exportDialog = new JFileChooser();
+				exportDialog.setSelectedFile(file);
+				int result = exportDialog.showSaveDialog(mw);				
+				if(result == JFileChooser.APPROVE_OPTION){
+					file = exportDialog.getSelectedFile();
+					SaveSortedNumbers.saveText(file); // funktioniert noch nicht 
 				}
+			}
 		}
+	
 	
 	public void fillNumbersSoFar()
 		{
@@ -111,4 +133,3 @@ public class ButtonKlick implements ActionListener {
 	
 }
 //last update 210915 - 2121
-

@@ -25,13 +25,14 @@ public class MainWindow extends JFrame {
 	JTextArea taSortedNumbers;
 	JLabel lblSortedNumbers;
 	JLabel lblIntroduction;
+	JButton btnSSNtofile;
 	
 	public MainWindow()
 		{
 			setBounds(new Rectangle(50, 0, 0, 0));
 			setAlwaysOnTop(true);
 			this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-			this.setSize(300,660);
+			this.setSize(300,690);
 			this.setTitle("Number Sorter");
 			getContentPane().setLayout(null);
 						
@@ -72,13 +73,18 @@ public class MainWindow extends JFrame {
 			lblSortedNumbers.setBounds(30, 420, 215, 25);
 			getContentPane().add(lblSortedNumbers);
 			
-			lblIntroduction = new JLabel("This app will sort any 5 positive numbers.");
+			lblIntroduction = new JLabel("Sort any 5 positive numbers!");
 			lblIntroduction.setHorizontalAlignment(SwingConstants.CENTER);
 			lblIntroduction.setBounds(30, 25, 215, 20);
 			getContentPane().add(lblIntroduction);
 			
 			btnSaver.setEnabled(true);
 			btnSorter.setEnabled(false);
+			
+			btnSSNtofile = new JButton("save sorted numbers in file");
+			btnSSNtofile.setEnabled(false);
+			btnSSNtofile.setBounds(30, 605, 215, 25);
+			getContentPane().add(btnSSNtofile);
 			
 			ButtonKlick klick = new ButtonKlick(this);
 			btnSaver.addActionListener(klick);
