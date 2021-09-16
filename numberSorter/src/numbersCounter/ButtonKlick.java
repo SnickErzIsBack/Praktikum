@@ -3,8 +3,9 @@ package numbersCounter;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
-
 import javax.swing.JFileChooser;
+
+// HIER: Logik basierend auf einzelnen ButtonKlicks
 
 public class ButtonKlick implements ActionListener {
 
@@ -21,17 +22,20 @@ public class ButtonKlick implements ActionListener {
 			String sortedOutput = "";
 			
 			if (e.getSource().equals(mw.btnSaver)) {
-					
+		
 				fillNumbersSoFar();
+				// Übergabe jeder Eingabe einzeln nach Prüfung in TextArea "taNumbersSoFar"
 					
 			}else if (e.getSource().equals(mw.btnSorter)) {
-					
+
 				mw.taNumbersSoFar.setText("");
 					
 				CreateNTSNarr obj = new CreateNTSNarr();
 				int numbersToSort[] = obj.createNTSNarr();
+				// Übergabe ArrayList in Objekt zur Bildung eines Arrays
 				
 				bubbleSort(numbersToSort);
+				// Ausgabe Array über Methode BubbleSort mit gleichnamigen Sortieralgorithmus sortiert
 				
 				for (int j =0; j< numbersToSort.length; j++)
 					{
@@ -39,10 +43,13 @@ public class ButtonKlick implements ActionListener {
 					}
 				
 				mw.taSortedNumbers.setText(sortedOutput);
+				//Ausgabe im Ausgabefeld TextArea "taSortedNumbers"
 				mw.btnSorter.setEnabled(false);
 				mw.btnSSNtofile.setEnabled(true);
+				//Switchen der Aktivität der Buttons nach Ablauf der Arbeitsschritte 
 			
 			}else if (e.getSource().equals(mw.btnSSNtofile)) { 
+				//WORK IN PROGRESS
 				
 				File file = new File( new File("sortedNumbers.txt").getAbsolutePath() );
 				
@@ -64,6 +71,7 @@ public class ButtonKlick implements ActionListener {
 			if(Numbers.numberList.size()<5)
 			{
 				if( mw.tfEnterNumbersHere.getText().matches("[0-9]+") )
+					//Prüfung des eingegebenen Wertes
 				{
 					Numbers.numberList.add(new Numbers(mw.tfEnterNumbersHere.getText()));
 					for (Numbers numbers: Numbers.numberList)
@@ -71,16 +79,21 @@ public class ButtonKlick implements ActionListener {
 							numbersSoFar += numbers.getNumber() + "\n";
 						}
 					mw.taNumbersSoFar.setText(numbersSoFar);
+					//Ausgabe der bisher eingebenen Werte ins Zwischenschritt-Ausgabefenster "taNumbersSoFar"
 					switchENSF();
+					//Änderung des Anweisungstextes in "lbl_EnterNumbers" für die Zahleneingabe
 					mw.tfEnterNumbersHere.setText("");
+					//Leeren des Eingabefeldes
 					if(Numbers.numberList.size()>=5)
 						{
 							mw.btnSaver.setEnabled(false);
 							mw.btnSorter.setEnabled(true);
+							//Switchen der Aktivität der Buttons nach Ablauf der Arbeitsschritte
 						}
 				}else{
 					mw.lbl_EnterNumbers.setText("Please enter an ACTUAL number!");
 					mw.tfEnterNumbersHere.setText("");
+					//Ausgabe bei Falscheingabe & Leeren des Eingabefeldes
 				}
 			}
 		}
@@ -110,6 +123,7 @@ public class ButtonKlick implements ActionListener {
 		}
 		
 	public static void bubbleSort(int[] arr)
+	//BubbleSort-Algorithmus
 		{
 			boolean sorted = false;
 			int momentary;

@@ -14,6 +14,8 @@ import java.awt.Rectangle;
 
 public class MainWindow extends JFrame {
 
+	// in dieser Klasse wird das "Fenster"/Formular und seine Elemente erstellt
+	
 	JButton btnSorter;
 	JButton btnSaver;
 	JLabel lbl_EnterNumbers;
