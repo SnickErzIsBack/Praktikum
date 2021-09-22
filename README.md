@@ -9,7 +9,7 @@ entwickle ich dieses kleine Programm in JAVA.
 Die Anforderungen, wie folgt:
 - (done) 5 Zahlen eingeben
 - (done) die Zahlen aufsteigend sortieren
-- (work in progress) die Zahlen in einer Textdatei auf dem Desktop ausgeben
+- (done) die Zahlen in einer Textdatei auf dem Desktop ausgeben
 
 Zu finden sind hier:
 - eine Konsolenversionen; sortiert wird mittels Collections-Sortierung.
