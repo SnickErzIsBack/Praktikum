@@ -20,37 +20,26 @@ public class ButtonKlick implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e)
 		{
-			String sortedOutput = "";
 			CreateNTSNarr obj = new CreateNTSNarr();
 			int numbersToSort[] = obj.createNTSNarr();
 						
 			if (e.getSource().equals(mw.btnSaver)) {
 		
-				fillNumbersSoFar();
-				//nach Prüfung Übergabe jeder Eingabe einzeln in "taNumbersSoFar"
+				fillNumbersSoFar();	// nach Prüfung Übergabe jeder Eingabe einzeln in "taNumbersSoFar"
 					
 			}else if (e.getSource().equals(mw.btnSorter)) {
 
 				mw.taNumbersSoFar.setText("");
 				
-				bubbleSort(numbersToSort);
-				// BubbleSort des Arrays
+				mw.taSortedNumbers.setText(bubbleSort(numbersToSort));	// Ausgabe im Ausgabefeld "taSortedNumbers"
 				
-				for (int j =0; j< numbersToSort.length; j++)
-					{
-						sortedOutput += String.valueOf(numbersToSort[j]) + "\n";
-					}
-				//make this a method together with bubblesort
-				
-				mw.taSortedNumbers.setText(sortedOutput);
-				//Ausgabe im Ausgabefeld "taSortedNumbers"
 				mw.btnSorter.setEnabled(false);
-				mw.btnSSNtofile.setEnabled(true);
-				//Switchen der Aktivität der Buttons nach Ablauf der Arbeitsschritte 
+				mw.btnSSNtofile.setEnabled(true);	// Switchen der Aktivität der Buttons 
 			
 			}else if (e.getSource().equals(mw.btnSSNtofile)) { 
-
-				saveText(sortedOutput);
+				
+				saveText(bubbleSort(numbersToSort));
+				
 			}
 		}
 	
@@ -60,30 +49,24 @@ public class ButtonKlick implements ActionListener {
 		
 			if(Numbers.numberList.size()<5)
 			{
-				if( mw.tfEnterNumbersHere.getText().matches("[0-9]+") )
-					//Prüfung des eingegebenen Wertes
+				if( mw.tfEnterNumbersHere.getText().matches("[0-9]+") ) // Prüfung des eingegebenen Wertes
 				{
 					Numbers.numberList.add(new Numbers(mw.tfEnterNumbersHere.getText()));
 					for (Numbers numbers: Numbers.numberList)
 						{
 							numbersSoFar += numbers.getNumber() + "\n";
 						}
-					mw.taNumbersSoFar.setText(numbersSoFar);
-					//Ausgabe der bisher eingebenen Werte ins Zwischenschritt-Ausgabefenster "taNumbersSoFar"
-					switchENSF();
-					//Änderung des Anweisungstextes in "lbl_EnterNumbers" für die Zahleneingabe
-					mw.tfEnterNumbersHere.setText("");
-					//Leeren des Eingabefeldes
+					mw.taNumbersSoFar.setText(numbersSoFar);	// Ausgabe aller bisherigen Werte in "taNumbersSoFar"
+					switchENSF();	// Änderung des Anweisungstextes in "lbl_EnterNumbers"
+					mw.tfEnterNumbersHere.setText("");	// Leeren des Eingabefeldes
 					if(Numbers.numberList.size()>=5)
 						{
 							mw.btnSaver.setEnabled(false);
-							mw.btnSorter.setEnabled(true);
-							//Switchen der Aktivität der Buttons nach Ablauf der Arbeitsschritte
+							mw.btnSorter.setEnabled(true);	// Switchen der Aktivität der Buttons
 						}
 				}else{
-					mw.lbl_EnterNumbers.setText("Please enter an ACTUAL number!");
-					mw.tfEnterNumbersHere.setText("");
-					//Ausgabe bei Falscheingabe & Leeren des Eingabefeldes
+					mw.lbl_EnterNumbers.setText("Please enter an ACTUAL number!"); // Ausgabe bei Falscheingabe
+					mw.tfEnterNumbersHere.setText(""); // Leeren des Eingabefeldes
 				}
 			}
 		}
@@ -112,7 +95,7 @@ public class ButtonKlick implements ActionListener {
 				}
 		}
 		
-	public static void bubbleSort(int[] arr)
+	public static String bubbleSort(int[] arr)
 	//BubbleSort-Algorithmus
 		{
 			boolean sorted = false;
@@ -132,7 +115,14 @@ public class ButtonKlick implements ActionListener {
 					            	}
 					        }
 				}
-			return;
+			
+			String sortedOutput = "";
+			
+			for (int j =0; j< arr.length; j++)
+			{
+				sortedOutput += String.valueOf(arr[j]) + "\n";
+			}
+			return sortedOutput;
 		}
 
 	public static void saveText(String a) {
