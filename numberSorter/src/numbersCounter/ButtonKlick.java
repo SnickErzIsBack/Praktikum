@@ -131,7 +131,7 @@ public class ButtonKlick implements ActionListener {
 		BufferedWriter bw = null;
 		
 		try {
-			FileWriter fw = new FileWriter("C:\\Users\\Snick\\Desktop\\sortedNumbers.txt", true);
+			FileWriter fw = new FileWriter("sortedNumbers.txt", true);
 			//Datenstrom erzeugen, Datei öffnen
 			bw = new BufferedWriter(fw);
 			bw.write(a);
