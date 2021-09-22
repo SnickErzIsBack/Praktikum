@@ -38,7 +38,7 @@ public class ButtonKlick implements ActionListener {
 			
 			}else if (e.getSource().equals(mw.btnSSNtofile)) { 
 				
-				saveText(bubbleSort(numbersToSort));
+				saveText(bubbleSort(numbersToSort)); // Speichern in TextFeld, statischer Speicherort
 				
 			}
 		}
@@ -96,11 +96,12 @@ public class ButtonKlick implements ActionListener {
 		}
 		
 	public static String bubbleSort(int[] arr)
-	//BubbleSort-Algorithmus
+
 		{
 			boolean sorted = false;
 			int momentary;
-						    
+			
+			// BubbleSort-Algorithmus						    
 			while(!sorted)
 				{
 					sorted = true;
@@ -118,6 +119,7 @@ public class ButtonKlick implements ActionListener {
 			
 			String sortedOutput = "";
 			
+			// Array zu String
 			for (int j =0; j< arr.length; j++)
 			{
 				sortedOutput += String.valueOf(arr[j]) + "\n";
