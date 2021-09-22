@@ -2,8 +2,9 @@ package numbersCounter;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
-import javax.swing.JFileChooser;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 
 // HIER: Logik basierend auf einzelnen ButtonKlicks
 
@@ -20,49 +21,38 @@ public class ButtonKlick implements ActionListener {
 	public void actionPerformed(ActionEvent e)
 		{
 			String sortedOutput = "";
-			
+			CreateNTSNarr obj = new CreateNTSNarr();
+			int numbersToSort[] = obj.createNTSNarr();
+						
 			if (e.getSource().equals(mw.btnSaver)) {
 		
 				fillNumbersSoFar();
-				// Übergabe jeder Eingabe einzeln nach Prüfung in TextArea "taNumbersSoFar"
+				//nach Prüfung Übergabe jeder Eingabe einzeln in "taNumbersSoFar"
 					
 			}else if (e.getSource().equals(mw.btnSorter)) {
 
 				mw.taNumbersSoFar.setText("");
-					
-				CreateNTSNarr obj = new CreateNTSNarr();
-				int numbersToSort[] = obj.createNTSNarr();
-				// Übergabe ArrayList in Objekt zur Bildung eines Arrays
 				
 				bubbleSort(numbersToSort);
-				// Ausgabe Array über Methode BubbleSort mit gleichnamigen Sortieralgorithmus sortiert
+				// BubbleSort des Arrays
 				
 				for (int j =0; j< numbersToSort.length; j++)
 					{
 						sortedOutput += String.valueOf(numbersToSort[j]) + "\n";
 					}
+				//make this a method together with bubblesort
 				
 				mw.taSortedNumbers.setText(sortedOutput);
-				//Ausgabe im Ausgabefeld TextArea "taSortedNumbers"
+				//Ausgabe im Ausgabefeld "taSortedNumbers"
 				mw.btnSorter.setEnabled(false);
 				mw.btnSSNtofile.setEnabled(true);
 				//Switchen der Aktivität der Buttons nach Ablauf der Arbeitsschritte 
 			
 			}else if (e.getSource().equals(mw.btnSSNtofile)) { 
-				//WORK IN PROGRESS
-				
-				File file = new File( new File("sortedNumbers.txt").getAbsolutePath() );
-				
-				JFileChooser exportDialog = new JFileChooser();
-				exportDialog.setSelectedFile(file);
-				int result = exportDialog.showSaveDialog(mw);				
-				if(result == JFileChooser.APPROVE_OPTION){
-					file = exportDialog.getSelectedFile();
-					SaveSortedNumbers.saveText(file); // funktioniert noch nicht 
-				}
+
+				saveText(sortedOutput);
 			}
 		}
-	
 	
 	public void fillNumbersSoFar()
 		{
@@ -144,6 +134,33 @@ public class ButtonKlick implements ActionListener {
 				}
 			return;
 		}
-	
+
+	public static void saveText(String a) {
+		BufferedWriter bw = null;
+		
+		try {
+			FileWriter fw = new FileWriter("C:\\Users\\Snick\\Desktop\\sortedNumbers.txt", true);
+			//Datenstrom erzeugen, Datei öffnen
+			bw = new BufferedWriter(fw);
+			bw.write(a);
+			bw.flush();
+			//Schreibvorgang erzwingen
+			System.out.println("sortedNumbers.txt saved");
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+			System.out.println("File wasn't saved");
+		
+		}finally {
+			//wird immer ausgeführt
+			try {
+				bw.close();
+				//Datei schließen
+				System.out.println("File closed");
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
+		}
+	}
 }
 //last update 210915 - 2121

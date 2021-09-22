@@ -44,6 +44,7 @@ public class MainWindow extends JFrame {
 			tfEnterNumbersHere.setHorizontalAlignment(SwingConstants.CENTER);
 			btnSaver = new JButton("save number");
 			btnSorter = new JButton("sort numbers");
+			btnSSNtofile = new JButton("save sorted numbers in file");
 									
 			getContentPane().add(tfEnterNumbersHere);
 			getContentPane().add(btnSorter);
@@ -81,16 +82,16 @@ public class MainWindow extends JFrame {
 			getContentPane().add(lblIntroduction);
 			
 			btnSaver.setEnabled(true);
-			btnSorter.setEnabled(false);
-			
-			btnSSNtofile = new JButton("save sorted numbers in file");
+			btnSorter.setEnabled(false);	
 			btnSSNtofile.setEnabled(false);
+			
 			btnSSNtofile.setBounds(30, 605, 215, 25);
 			getContentPane().add(btnSSNtofile);
 			
 			ButtonKlick klick = new ButtonKlick(this);
 			btnSaver.addActionListener(klick);
 			btnSorter.addActionListener(klick);
+			btnSSNtofile.addActionListener(klick);
 								
 			this.setVisible(true);
 		}
