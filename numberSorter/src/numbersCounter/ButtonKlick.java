@@ -25,20 +25,25 @@ public class ButtonKlick implements ActionListener {
 						
 			if (e.getSource().equals(mw.btnSaver)) {
 		
-				fillNumbersSoFar();	// nach Prüfung Übergabe jeder Eingabe einzeln in "taNumbersSoFar"
+				fillNumbersSoFar();
+				// nach Prüfung Übergabe jeder Eingabe einzeln in "taNumbersSoFar"
 					
 			}else if (e.getSource().equals(mw.btnSorter)) {
 
 				mw.taNumbersSoFar.setText("");
 				
-				mw.taSortedNumbers.setText(bubbleSort(numbersToSort));	// Ausgabe im Ausgabefeld "taSortedNumbers"
+				mw.taSortedNumbers.setText(bubbleSort(numbersToSort));
+				// Ausgabe im Ausgabefeld "taSortedNumbers"
 				
 				mw.btnSorter.setEnabled(false);
-				mw.btnSSNtofile.setEnabled(true);	// Switchen der Aktivität der Buttons 
+				mw.btnSSNtofile.setEnabled(true);
+				mw.lblSortedNumbers.setText("Your numbers are sorted now");
+				// Switchen der Aktivität der Buttons 
 			
 			}else if (e.getSource().equals(mw.btnSSNtofile)) { 
 				
-				saveText(bubbleSort(numbersToSort)); // Speichern in TextFeld, statischer Speicherort
+				saveText(bubbleSort(numbersToSort));
+				// Speichern in TextFeld, statischer Speicherort
 				
 			}
 		}
@@ -49,24 +54,29 @@ public class ButtonKlick implements ActionListener {
 		
 			if(Numbers.numberList.size()<5)
 			{
-				if( mw.tfEnterNumbersHere.getText().matches("[0-9]+") ) // Prüfung des eingegebenen Wertes
+				if( mw.tfEnterNumbersHere.getText().matches("[0-9]+") )
+					// Prüfung des eingegebenen Wertes
 				{
 					Numbers.numberList.add(new Numbers(mw.tfEnterNumbersHere.getText()));
 					for (Numbers numbers: Numbers.numberList)
 						{
 							numbersSoFar += numbers.getNumber() + "\n";
 						}
-					mw.taNumbersSoFar.setText(numbersSoFar);	// Ausgabe aller bisherigen Werte in "taNumbersSoFar"
+					mw.taNumbersSoFar.setText(numbersSoFar);
+					// Ausgabe aller bisherigen Werte in "taNumbersSoFar"
 					switchENSF();	// Änderung des Anweisungstextes in "lbl_EnterNumbers"
 					mw.tfEnterNumbersHere.setText("");	// Leeren des Eingabefeldes
 					if(Numbers.numberList.size()>=5)
 						{
 							mw.btnSaver.setEnabled(false);
-							mw.btnSorter.setEnabled(true);	// Switchen der Aktivität der Buttons
+							mw.btnSorter.setEnabled(true);
+							// Switchen der Aktivität der Buttons
 						}
 				}else{
-					mw.lbl_EnterNumbers.setText("Please enter an ACTUAL number!"); // Ausgabe bei Falscheingabe
-					mw.tfEnterNumbersHere.setText(""); // Leeren des Eingabefeldes
+					mw.lbl_EnterNumbers.setText("Please enter an ACTUAL number!");
+					// Ausgabe bei Falscheingabe
+					mw.tfEnterNumbersHere.setText("");
+					// Leeren des Eingabefeldes
 				}
 			}
 		}
@@ -77,18 +87,23 @@ public class ButtonKlick implements ActionListener {
 				{
 					case 1:
 						{mw.lbl_EnterNumbers.setText("Please enter your second number!");
+						mw.tfEnterNumbersHere.requestFocus();
 							break;}
 					case 2:
 						{mw.lbl_EnterNumbers.setText("Please enter your third number!");
+						mw.tfEnterNumbersHere.requestFocus();
 							break;}
 					case 3:
 						{mw.lbl_EnterNumbers.setText("Please enter your fourth number!");
+						mw.tfEnterNumbersHere.requestFocus();
 							break;}
 					case 4:
 						{mw.lbl_EnterNumbers.setText("Please enter your last number!");
+						mw.tfEnterNumbersHere.requestFocus();
 							break;}
 					case 5:
 						{mw.lbl_EnterNumbers.setText("You have entered 5 numbers!");
+						mw.lblNumbersSoFar.setText("You can sort them now!");
 						break;}
 					default:
 							break;

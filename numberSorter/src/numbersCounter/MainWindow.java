@@ -35,6 +35,7 @@ public class MainWindow extends JFrame {
 			setAlwaysOnTop(true);
 			this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 			this.setSize(300,690);
+			this.setLocationRelativeTo(null);
 			this.setTitle("Number Sorter");
 			getContentPane().setLayout(null);
 						
@@ -71,7 +72,7 @@ public class MainWindow extends JFrame {
 			taSortedNumbers.setBounds(30, 454, 215, 140);
 			getContentPane().add(taSortedNumbers);
 			
-			lblSortedNumbers = new JLabel("Your numbers are sorted now");
+			lblSortedNumbers = new JLabel("You will see the outcome here");
 			lblSortedNumbers.setHorizontalAlignment(SwingConstants.CENTER);
 			lblSortedNumbers.setBounds(30, 420, 215, 25);
 			getContentPane().add(lblSortedNumbers);
@@ -89,7 +90,9 @@ public class MainWindow extends JFrame {
 			getContentPane().add(btnSSNtofile);
 			
 			ButtonKlick klick = new ButtonKlick(this);
+			KeyKlick klick2 = new KeyKlick(this);
 			btnSaver.addActionListener(klick);
+			//btnSaver.addActionListener(klick2);
 			btnSorter.addActionListener(klick);
 			btnSSNtofile.addActionListener(klick);
 								
