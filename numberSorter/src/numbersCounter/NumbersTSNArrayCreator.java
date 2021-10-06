@@ -1,6 +1,6 @@
 package numbersCounter;
 
-public class CreateNTSNarr {
+public class NumbersTSNArrayCreator {
 
 	public int[] createNTSNarr()
 	//Erzeugung des Arrays aus der ArrayList zur Weiterverarbeitung in BubbleSort

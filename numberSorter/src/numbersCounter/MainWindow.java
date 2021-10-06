@@ -9,6 +9,9 @@ import javax.swing.JTextField;
 import numbersCounter.MainWindow;
 import javax.swing.SwingConstants;
 
+import inputOutput.ButtonKlick;
+import inputOutput.KeyKlick;
+
 import javax.swing.JTextArea;
 import java.awt.Rectangle;
 
@@ -16,19 +19,116 @@ public class MainWindow extends JFrame {
 
 	// in dieser Klasse wird das "Fenster"/Formular und seine Elemente erstellt
 	
-	JButton btnSorter;
-	JButton btnSaver;
-	JLabel lbl_EnterNumbers;
-	JLabel bckGr;
-	JPanel bckGrPanel;
-	JTextField tfEnterNumbersHere;
-	JLabel lblNumbersSoFar;
-	JTextArea taNumbersSoFar;
-	JTextArea taSortedNumbers;
-	JLabel lblSortedNumbers;
-	JLabel lblIntroduction;
-	JButton btnSSNtofile;
-	
+	private JButton btnSorter;
+	private JButton btnSaver;
+	private JButton btnSSNtofile;
+	private JLabel lbl_EnterNumbers;
+	private JLabel bckGr;
+	private JPanel bckGrPanel;
+	private JTextField tfEnterNumbersHere;
+	private JLabel lblNumbersSoFar;
+	private JTextArea taNumbersSoFar;
+	private JTextArea taSortedNumbers;
+	private JLabel lblSortedNumbers;
+	private JLabel lblIntroduction;
+		
+	public JButton getBtnSorter()
+		{
+			return btnSorter;
+		}
+	public void setBtnSorter(JButton btnSorter)
+		{
+			this.btnSorter = btnSorter;
+		}
+	public JButton getBtnSaver()
+		{
+			return btnSaver;
+		}
+	public void setBtnSaver(JButton btnSaver)
+		{
+			this.btnSaver = btnSaver;
+		}
+	public JButton getBtnSSNtofile()
+		{
+			return btnSSNtofile;
+		}
+	public void setBtnSSNtofile(JButton btnSSNtofile)
+		{
+			this.btnSSNtofile = btnSSNtofile;
+		}
+	public JLabel getLbl_EnterNumbers()
+		{
+			return lbl_EnterNumbers;
+		}
+	public void setLbl_EnterNumbers(JLabel lbl_EnterNumbers)
+		{
+			this.lbl_EnterNumbers = lbl_EnterNumbers;
+		}
+	public JLabel getBckGr()
+		{
+			return bckGr;
+		}
+	public void setBckGr(JLabel bckGr)
+		{
+			this.bckGr = bckGr;
+		}
+	public JPanel getBckGrPanel()
+		{
+			return bckGrPanel;
+		}
+	public void setBckGrPanel(JPanel bckGrPanel)
+		{
+			this.bckGrPanel = bckGrPanel;
+		}
+	public JTextField getTfEnterNumbersHere()
+		{
+			return tfEnterNumbersHere;
+		}
+	public void setTfEnterNumbersHere(JTextField tfEnterNumbersHere)
+		{
+			this.tfEnterNumbersHere = tfEnterNumbersHere;
+		}
+	public JLabel getLblNumbersSoFar()
+		{
+			return lblNumbersSoFar;
+		}
+	public void setLblNumbersSoFar(JLabel lblNumbersSoFar)
+		{
+			this.lblNumbersSoFar = lblNumbersSoFar;
+		}
+	public JTextArea getTaNumbersSoFar()
+		{
+			return taNumbersSoFar;
+		}
+	public void setTaNumbersSoFar(JTextArea taNumbersSoFar)
+		{
+			this.taNumbersSoFar = taNumbersSoFar;
+		}
+	public JTextArea getTaSortedNumbers()
+		{
+			return taSortedNumbers;
+		}
+	public void setTaSortedNumbers(JTextArea taSortedNumbers)
+		{
+			this.taSortedNumbers = taSortedNumbers;
+		}
+	public JLabel getLblSortedNumbers()
+		{
+			return lblSortedNumbers;
+		}
+	public void setLblSortedNumbers(JLabel lblSortedNumbers)
+		{
+			this.lblSortedNumbers = lblSortedNumbers;
+		}
+	public JLabel getLblIntroduction()
+		{
+			return lblIntroduction;
+		}
+	public void setLblIntroduction(JLabel lblIntroduction)
+		{
+			this.lblIntroduction = lblIntroduction;
+		}
+
 	public MainWindow()
 		{
 			setBounds(new Rectangle(50, 0, 0, 0));
@@ -89,10 +189,11 @@ public class MainWindow extends JFrame {
 			btnSSNtofile.setBounds(30, 605, 215, 25);
 			getContentPane().add(btnSSNtofile);
 			
-			ButtonKlick klick = new ButtonKlick(this);
+			ButtonKlick klick = new inputOutput.ButtonKlick(this);
 			KeyKlick klick2 = new KeyKlick(this);
+			
 			btnSaver.addActionListener(klick);
-			//btnSaver.addActionListener(klick2);
+			//tfEnterNumbersHere.addActionListener((ActionListener) klick2);
 			btnSorter.addActionListener(klick);
 			btnSSNtofile.addActionListener(klick);
 								
